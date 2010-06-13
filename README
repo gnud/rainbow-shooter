@@ -13,7 +13,7 @@ modify it under  the terms  of the GNU Public License
 as  published  by  the  Free  Software Foundation; either version 3
 of the License, or any later version.
 
-This  game  is  distributed in the hope that it will  be  useful, but
+This  program  is  distributed in the hope that it will  be  useful, but
 WITHOUT   ANY   WARRANTY;   without  even  the  implied  warranty  of
 MERCHANTABILITY or FITNESS  FOR  A  PARTICULAR PURPOSE.   See the GNU
 Lesser General Public License for more details.
@@ -74,4 +74,4 @@ project decompress  the  distribution file in a new folder having the
 same name as the project.
 
 We  hope  you have as much fun using rainbow-shooter as I did
-creating it.
+creating it
