@@ -9,15 +9,15 @@ from gtk import main as Main, main_quit
 #from random import randint, randrange
 from os.path import splitext
 # The rainbow_shooter modules
-from rainbow_shooter.lib.periodictable import periodictable
-from rainbow_shooter.lib.uicontrol.newrow import new_row_UIcontrol
-from rainbow_shooter.lib.uicontrol.prefdialog import pref_UIcontrol
-from rainbow_shooter.lib.uicontrol.playbackui import playerui
-from rainbow_shooter.lib.confman import confmanager
-from rainbow_shooter.lib.resman import resourceman
+from lib.periodictable import periodictable
+from lib.uicontrol.newrow import new_row_UIcontrol
+from lib.uicontrol.prefdialog import pref_UIcontrol
+from lib.uicontrol.playbackui import playerui
+from lib.confman import confmanager
+from lib.resman import resourceman
 
 """ Program which plays colors in a color player."""
-class prozor (Window):
+class rshooterGui (Window):
 	"""Constructs each widget and loads any managers."""
 	def start_builder(self):
 		self.resourceman = resourceman("rainbow_shooter.share.ui")
@@ -83,7 +83,7 @@ class prozor (Window):
 #		self.minimum_adjustment.set_value(self.configuration.get_min_range())
 #		self.maximum_adjustment.set_value(self.configuration.get_max_range())
 	def __init__(self):
-		super(prozor, self).__init__()
+		super(rshooterGui, self).__init__()
 		self.start_builder()
 		self = self.builder.get_object("window1")
 		self.show_all()
@@ -92,6 +92,6 @@ class prozor (Window):
 		main_quit()
 
 def main ():
-	p = prozor()
+	p = rshooterGui()
 	Main()
 if __name__ == "__main__": main()

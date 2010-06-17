@@ -1,17 +1,51 @@
-#! /usr/bin/env python
+"""
+Rainbow-shooter
+========
 
-from distutils.core import setup
-from glob import glob
-print(glob("*"))
+{Rainbow-shooter long description}
+
+{Link to binaries}
+
+
+Features
+--------
+
+- item 1
+- item 2
+
+
+Development Version
+-------------------
+
+Link to git
+"""
+import os
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
+
 setup(
-    name = 'rainbow-shooter',
-    version = '0.1',
-    description = 'color slideshow.',
-    author = 'Damjan Dimitrioski',
-    author_email = 'damjandimitrioski@gmail.com',
-    url = '',
-    license = 'GPL',
-    platforms = 'posix',
-    data_files=[('share', ['rainbow_shooter.xml'])],
-    packages = ['rainbow-shooter'],
-    )
+    name='Rainbow_shooter',
+    version='0.1',
+    url='http://github.com/gnud/rainbow-shooter',
+    license='GPL',
+	author='Damjan Dimitrioski',
+	author_email='damjandimitrioski@gmail.com',
+    description='A slideshow that show colors from a list in fullscreen.',
+    long_description=__doc__,
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Users',
+        'License :: OSI Approved :: GPL License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Software Development :: Libraries :: Python Modules'
+    ],
+    packages=['rainbow_shooter'],
+    package_data={
+        'rainbow-shooter.share/': ['ui/*']
+    },
+    platforms='any'
+)
