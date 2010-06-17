@@ -11,7 +11,6 @@ class slideshow:
 #		blue = random.randint(0, 65535)
 #		return map.alloc_color(red, green, blue)
 	def __init__(self, color, time, parent, next, total, total_items, debug_lb, debug_lb1, DEBUG=False):
-		#print("Work Work")
 		self.timer_id = None
 		self.seconds = 0
 		self.color = color
