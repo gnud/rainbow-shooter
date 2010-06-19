@@ -4,6 +4,7 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window1">
     <property name="title" translatable="yes">:: &#x422;&#x440;&#x435;&#x43F;&#x43A;&#x430;&#x447; &#x411;&#x43E;&#x438; ::</property>
+    <property name="window_position">center-always</property>
     <signal name="destroy" handler="destroy"/>
     <child>
       <object class="GtkVBox" id="vbox1">
@@ -460,8 +461,8 @@
                         <child>
                           <object class="GtkFileChooserButton" id="pd_libpath">
                             <property name="visible">True</property>
-                            <property name="action">select-folder</property>
                             <property name="show_hidden">True</property>
+                            <property name="action">select-folder</property>
                             <property name="title" translatable="yes">&#x418;&#x437;&#x431;&#x435;&#x440;&#x435;&#x442;&#x435; &#x43F;&#x430;&#x43F;&#x43A;&#x430;</property>
                           </object>
                           <packing>

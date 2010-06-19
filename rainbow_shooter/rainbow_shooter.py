@@ -5,6 +5,7 @@
 from gtk import Window, glade, Builder
 from gtk import ENTRY_ICON_PRIMARY, ENTRY_ICON_SECONDARY
 from gtk import main as Main, main_quit
+from gtk.gdk import pixbuf_new_from_file
 # Python built-in stuff
 #from random import randint, randrange
 from os.path import splitext
@@ -20,7 +21,7 @@ from lib.resman import resourceman
 class rshooterGui (Window):
 	"""Constructs each widget and loads any managers."""
 	def start_builder(self):
-		self.resourceman = resourceman("rainbow_shooter.share.ui")
+		self.resourceman = resourceman("rainbow_shooter.share")
 		self.configuration = confmanager()
 		#self.configuration = confmanager(True) # Debug version
 
@@ -85,7 +86,12 @@ class rshooterGui (Window):
 	def __init__(self):
 		super(rshooterGui, self).__init__()
 		self.start_builder()
+		win_icon = pixbuf_new_from_file("/home/gnu_d/Desktop/active_programs/olivers_colors/rainbow-shooter/rainbow_shooter/share/icons/rainbow_shooter.svg")
+		win_icon = pixbuf_new_from_file(self.resourceman.get_images_file_path("rainbow_shooter", "svg"))
 		self = self.builder.get_object("window1")
+
+		self.set_icon(win_icon)
+
 		self.show_all()
 	"""Exits from the program."""
 	def destroy(self, widget):

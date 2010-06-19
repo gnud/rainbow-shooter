@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from os import environ
+from os import getenv
+from os.path import expanduser
 from os.path import join
 from os.path import exists
 from configParserConf import pcm
@@ -17,7 +19,8 @@ class confmanager():
 		self.DEBUG = DEBUG
 		confName = "rainbow_shooter.ini"
 
-		self.confman = join(environ.get("HOME"), ".rainbowshooter/", confName)
+		self.confman = join(expanduser("~"), ".rainbowshooter", confName)
+		#self.confman = join(environ.get("HOME"), ".rainbowshooter/", confName)
 		#print(exists(self.confman))
 		#print(self.confman)
 		self.cm = pcm (self.confman)
