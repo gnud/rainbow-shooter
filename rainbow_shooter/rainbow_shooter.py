@@ -14,6 +14,7 @@ from lib.periodictable import periodictable
 from lib.uicontrol.newrow import new_row_UIcontrol
 from lib.uicontrol.prefdialog import pref_UIcontrol
 from lib.uicontrol.playbackui import playerui
+from lib.parman import paramanager
 from lib.confman import confmanager
 from lib.resman import resourceman
 
@@ -22,8 +23,10 @@ class rshooterGui (Window):
 	"""Constructs each widget and loads any managers."""
 	def start_builder(self):
 		self.resourceman = resourceman("rainbow_shooter.share")
-		self.configuration = confmanager()
-		#self.configuration = confmanager(True) # Debug version
+		#self.configuration = confmanager()
+		self.configuration = confmanager(True) # Debug version
+		self.parman = paramanager(self.configuration)
+
 
 		#gladefile = "share/rainbow_shooter.xml"
 		gladefile = self.resourceman.get_xml_file_path("rainbow_shooter")
@@ -70,6 +73,7 @@ class rshooterGui (Window):
 	This action is made only once per start."""
 	def start_defaults(self):
 		self.default_adjustment.set_value(self.configuration.get_default_timer())
+		print(type(self.configuration.get_min_range()))
 		self.minimum_adjustment.set_value(self.configuration.get_min_range())
 		self.maximum_adjustment.set_value(self.configuration.get_max_range())
 		self.update_defaults()
@@ -86,10 +90,12 @@ class rshooterGui (Window):
 	def __init__(self):
 		super(rshooterGui, self).__init__()
 		self.start_builder()
+		# Preparing the artwork
 		win_icon = pixbuf_new_from_file("/home/gnu_d/Desktop/active_programs/olivers_colors/rainbow-shooter/rainbow_shooter/share/icons/rainbow_shooter.svg")
 		win_icon = pixbuf_new_from_file(self.resourceman.get_images_file_path("rainbow_shooter", "svg"))
-		self = self.builder.get_object("window1")
 
+		self = self.builder.get_object("window1")
+		# Setting the window icon.
 		self.set_icon(win_icon)
 
 		self.show_all()
